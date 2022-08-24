@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:body>
+        <ui:composition template="./../resources/templates/plantilla2.xhtml">
+            <ui:define name="content">
+                
+                <b:panel title ="Tipos Lavados - Admin." look="success">
+                    <h:form>
+                        
+                        <b:dataTable value="#{lavadosController.lavado}" 
+                                     var="lavado"
+                                     excel="true"
+                                     csv="true"
+                                     pdf="true"
+                                     print="true"
+                                     copy="true"
+                                     column-visibility="true"                                    
+                                     >
+                            <b:dataTableColumn value="#{lavado.descripcion}"
+                                               width="9%"
+                                               label="Descripcion"/>
+                            <b:dataTableColumn value="#{lavado.precio}"
+                                               width="10%"
+                                               style="text-align: center"
+                                               label="Precio"/>   
+                            <b:dataTableColumn width="10%"
+                                               style="text-align: center"
+                                               label="Acción">
+                            <b:commandButton value="Editar"
+                                             action="#{lavadosController.edita(lavado.descripcion)}"
+                                             look="success"/>
+                            </b:dataTableColumn>                 
+                        </b:dataTable>
+                        
+                        <b:commandButton value="Añadir o Editar"
+                                         action="#{lavadosController.edita2()}"
+                                         look="success"/>
+                        
+                    </h:form>
+                </b:panel>   
+            </ui:define>
+            
+            <ui:define name="bottom_content">
+                <img src="../logo.png"
+                     height="112"
+                     width="150"/>
+                <span style="margin-left:30%;text-align:center">Dirección:75mtrs N de Plywood, Tibas</span> 
+                <span style="margin-left:25%">autolavado@gmail.com</span>                             
+            </ui:define>                       
+        </ui:composition>
+    </h:body>
+</html>

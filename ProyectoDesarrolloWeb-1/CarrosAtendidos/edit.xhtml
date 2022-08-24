@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:body>
+        <ui:composition template="./../resources/templates/plantilla2.xhtml">
+            <ui:define name="content">
+
+<b:panel title ="Editar" look="success">
+<h:form id = "edit">
+<!--                        Fila 1 :placa-->
+<b:row>
+<!--    toma el ancho de 2 columnas-->
+    <b:column medium-screen ="2">
+        <h:outputLabel value="Placa"/>
+    </b:column>
+    <b:column medium-screen="4">
+    <b:inputText placeholder="Placa"
+                 value="#{carroController.placa}"
+                 id ="Placa"/>
+    </b:column>
+    <b:column medium-screen="6" style-class="message">
+        <b:message for="Placa"/>
+    </b:column>
+</b:row>
+<!--                        Fila 2 sobre fecha atencion-->
+<b:row>
+<!--    toma el ancho de 2 columnas-->
+    <b:column medium-screen ="2">
+        <h:outputLabel value="Fecha de Atención"/>
+    </b:column>
+
+    <b:column medium-screen="4">
+    <b:datepicker id="fechaAtencion"
+                 required="false"
+                 requiredMessage="Se requiere la fecha de atencion"
+                 value="#{carroController.fechaAtencion}"/>
+    </b:column>
+    <b:column medium-screen="6" style-class="message">
+        <b:message for="F. Atencion"/>
+    </b:column>
+</b:row>
+<!--                        Fila 3 sobre el completado-->
+<b:row>
+<!--    toma el ancho de 2 columnas-->
+    <b:column medium-screen ="2">
+        <h:outputLabel value="Completado?"/>
+    </b:column>
+
+    <b:column medium-screen="4">
+        <b:panelGrid columns = "2">
+                 <b:radiobutton value="#{carroController.completado}"
+                                itemLabel ="Yes"
+                                itemValue="Y"/>
+                 <b:radiobutton value="#{carroController.completado}"
+                                itemLabel ="No"
+                                itemValue="N"/>
+        </b:panelGrid>                                
+    </b:column>
+
+</b:row>
+<!--                        Fila 8 los botones de Acción-->
+<b:row>
+<!--    toma el ancho de 2 columnas-->
+    <b:column medium-screen="6" >
+        <b:commandButton value="Ingresar"
+                         action="#{carroController.insertar()}"
+                         look="primary"
+                         style="width:33%"/>
+        <b:commandButton value="Eliminar"
+                         action="#{carroController.elimina()}"
+                         look="danger"
+                         style="width:33%"/>
+        <b:commandButton value="Modificar"
+                         action="#{carroController.modifica()}"
+                         look="success"
+                         style="width:33%"/>
+
+    </b:column>
+</b:row>
+                    </h:form>
+                </b:panel>
+            </ui:define>
+
+            <ui:define name="bottom_content">
+                <img src="../logo.png"
+                     height="50"
+                     width="100"/>
+                <span style="margin-left:30%;text-align:center">Dirección:75mtrs N de Plywood, Tibas</span> 
+                <span style="margin-left:25%">autolavado@gmail.com</span>                             
+            </ui:define>            
+        </ui:composition>
+
+    </h:body>
+</html>

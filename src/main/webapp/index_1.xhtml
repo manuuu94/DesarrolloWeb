@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>  <!--Tiene 2 puntos por la etiqueta de arriba que tiene un prefido jsf-->
+        <title>AutoLavado Admin.</title>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>        
+        <style>
+            .centrado{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 400px;
+                height: 200px;
+                margin-left: -200px;
+                margin-top: -100px;
+            }
+        </style>                  
+    </h:head>
+    
+    <h:body styleClass="Bimage">
+        <f:view>
+            <h:form>
+                <b:panel title = "Login"
+                         collapsible ="false"
+                         style-class="centrado"
+                         look = "primary">
+                    <b:row>
+                        <b:column medium-screen ="1"/>
+                        <b:column medium-screen="10">
+                            <b:inputText value ="#{usuarioController.idUsuario}"/>
+                        </b:column>     
+                    </b:row> 
+                    
+                    <b:row>
+                        <b:column medium-screen ="1"/>
+                        <b:column medium-screen="10">
+                            <b:inputSecret value ="#{usuarioController.pwUsuario}"/>
+                        </b:column>     
+                    </b:row> 
+                    
+                    <b:row>
+                        <b:column medium-screen ="1"/>
+                        <b:column medium-screen="10">
+                            <b:commandButton value ="Validar"
+                                             look="primary"
+                                             style="width:100%"
+                                             action="#{usuarioController.valida()}"/>
+                        </b:column>     
+                    </b:row>                   
+                                       
+                </b:panel>                
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
